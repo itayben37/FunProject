@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { DroneController } from "./drone/drone.controller";
+import { DroneController } from "./drone.controller";
 
 
 export function buildDroneRoutes(controller : DroneController) : Router{

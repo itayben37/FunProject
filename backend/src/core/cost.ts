@@ -1,6 +1,6 @@
-import { Interceptor } from "../interceptor/interceptor";
-import {Target} from "../target/target";
-import { BadRequestError } from "../../errors/app-error";
+import { Interceptor } from "../modules/interceptor/interceptor";
+import {Target} from "../modules/target/target";
+import { BadRequestError } from "../errors/app-error";
 import { calculateCatchTime, CatchTime } from "./catch.time";
 
 // weights of the 4 parts of the cost:

@@ -14,8 +14,10 @@ export class DroneController{
 
     async createDrone(req : Request, res : Response, next : NextFunction){
         try{
-            const drone = await this.droneService.createDrone(req.body.position,
-                 req.body.maxSpeed, req.body.maxAcceleration, req.body.battery, req.body.operationalRadius, req.body.cost, req.body.model);
+            const body = req.body ?? {};
+            const drone = await this.droneService.createDrone(body.position,
+                 body.maxSpeed, body.maxAcceleration, body.battery, body.operationalRadius, body.cost,
+                 body.pk, body.launchDelay, body.model);
             res.status(201).json(drone);
         }catch(err){
             next(err);

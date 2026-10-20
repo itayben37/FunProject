@@ -3,6 +3,8 @@ import {QuadFuncs} from "./quad";
 import {Quad} from "./quad";
 import {Point} from "./quad";
 
+const MIN_SPLIT_SIZE : number = 1e-3; // meters, a quad narrower than this is not split any more
+
 export class QuadTree{
     constructor(private quad : Quad, private points : Point[] = [] , private quadTrees : QuadTree[] = [] , private maxToSplit : number = 4){
         if (!QuadFuncs.isQuad(quad)) throw new BadRequestError("QuadTree: area must be a valid Quad");
@@ -12,8 +14,15 @@ export class QuadTree{
 
     addPoint(p : Point){
         if (!QuadFuncs.isPoint(p)) throw new BadRequestError("addPoint: p must be a Point with finite x and y");
+        if(this.quadTrees.length > 0){
+            // already split: the point goes down to the child that holds it. If none does, it stays here, so it is never lost
+            const child = this.quadTrees.find(c => QuadFuncs.insideQuad(c.quad, p));
+            if(child){ child.addPoint(p); return; }
+        }
         this.points.push(p);
-        if(this.points.length > this.maxToSplit)
+        // a quad that is too small to split (many points on the same spot) would split forever
+        const width = this.quad.p2.x - this.quad.p1.x;
+        if(this.quadTrees.length === 0 && this.points.length > this.maxToSplit && width > MIN_SPLIT_SIZE)
             this.split();
     }
 

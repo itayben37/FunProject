@@ -18,4 +18,9 @@ export class DroneRepository{
         const savedEntity = await this.repo.save(entity);
         return DroneMapper.toDomain(savedEntity);
     }
+
+    async findAll() : Promise<Drone[]>{
+        const entities = await this.repo.find();
+        return entities.map(DroneMapper.toDomain);
+    }
 }

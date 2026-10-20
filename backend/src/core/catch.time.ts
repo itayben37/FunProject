@@ -1,6 +1,6 @@
-import { Interceptor } from "../interceptor/interceptor";
-import { Target } from "../target/target";
-import { Vector3 } from "../../Vector3";
+import { Interceptor } from "../modules/interceptor/interceptor";
+import { Target } from "../modules/target/target";
+import { Vector3 } from "../Vector3";
 
 export type CatchTime = {
     catchTime : number;  // seconds from now until the interceptor is at the target, the launch delay is included

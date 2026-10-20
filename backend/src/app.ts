@@ -1,10 +1,11 @@
 import "reflect-metadata";
 import express from "express";
 import { buildRoleRoutes } from "./modules/role/role.route";
-import { buildDroneRoutes } from "./modules/interceptor/drone.router";
+import { buildDroneRoutes } from "./modules/interceptor/drone/drone.router";
 import { buildTargetDroneRoutes } from "./modules/target/drone/target.drone.router";
 import { AppDataSource } from "./data.source";
-import { roleController, droneController, targetDroneController } from "./container";
+import { buildAssignmentRoutes } from "./modules/assignment/assignment.router";
+import { roleController, droneController, targetDroneController, assignmentController } from "./container";
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "./errors/app-error";
 
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use('/api/roles', buildRoleRoutes(roleController));
 app.use('/api/drones', buildDroneRoutes(droneController));
 app.use('/api/target-drones', buildTargetDroneRoutes(targetDroneController));
+app.use('/api/assignments', buildAssignmentRoutes(assignmentController));
 app.use(errorHandler);
 
 

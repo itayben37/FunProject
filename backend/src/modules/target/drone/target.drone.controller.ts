@@ -16,7 +16,7 @@ export class TargetDroneController{
         try{
             const body = req.body ?? {};
             const targetDrone = await this.targetDroneService.createTargetDrone(body.position,
-                 body.speed, body.goal, body.danger);
+                 body.speed, body.goal, body.danger, body.acceleration);
             res.status(201).json(targetDrone);
         }catch(err){
             next(err);
@@ -25,8 +25,8 @@ export class TargetDroneController{
 
     async getTargetDroneById(req : Request, res : Response, next : NextFunction){
         try{
-            const targetDrone = await this.targetDroneService.findById(req.body.id);
-            res.status(201).json(targetDrone);
+            const targetDrone = await this.targetDroneService.findById(String(req.params.id));
+            res.status(200).json(targetDrone);
         }catch(err){
             next(err);
         }

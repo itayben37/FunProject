@@ -1,7 +1,7 @@
 // data-source.ts
 import { DataSource } from "typeorm";
 import { RoleEntity } from "./modules/role/role.entity";
-import { DroneEntity } from "./modules/interceptor/drone.entity";
+import { DroneEntity } from "./modules/interceptor/drone/drone.entity";
 import { TargetDroneEntity } from "./modules/target/drone/target.drone.entity";
 import dotenv from "dotenv";
 import path from "path";

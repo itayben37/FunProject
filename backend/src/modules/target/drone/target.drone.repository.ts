@@ -24,4 +24,9 @@ export class TargetDroneRepository{
         return entity ? TargetDroneMapper.toDomain(entity) : null;
     }
 
+    async findAll() : Promise<TargetDrone[]> {
+        const entities = await this.repo.find();
+        return entities.map(TargetDroneMapper.toDomain);
+    }
+
 }
