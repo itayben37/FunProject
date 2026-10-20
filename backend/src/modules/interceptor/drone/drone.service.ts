@@ -37,9 +37,9 @@ export class DroneService implements InterceptorProvider{
         return await this.droneRepository.findAll();
     }
 
-    ifInOperationalRadius(interceptorDrone : Drone, targetPosition : Vector3) : boolean{
-        return this.startPosition.distanceTo(targetPosition) <=
-         interceptorDrone.getOperationalRadius() ? true : false;
-    }
+    // ifInOperationalRadius(interceptorDrone : Drone, targetPosition : Vector3) : boolean{
+    //     return this.startPosition.distanceTo(targetPosition) <=
+    //      interceptorDrone.getOperationalRadius() ? true : false;
+    // }
 
 }

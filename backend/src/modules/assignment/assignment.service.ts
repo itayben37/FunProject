@@ -4,6 +4,7 @@ import { Interceptor } from "../interceptor/interceptor";
 import { QuadTree } from "../../core/quadtree";
 import { QuadFuncs, Quad } from "../../core/quad";
 import { main, AssignmentResult } from "../../core/main";
+import { Target } from "../target/target";
 
 export class AssignmentService{
     private static instance : AssignmentService | undefined;
@@ -22,7 +23,7 @@ export class AssignmentService{
     // The values are checked by the engine.
     async assign(maxTime : number, maxCost : number | undefined, assetImportancy : number) : Promise<AssignmentResult>{
         const interceptors : Interceptor[] = await this.interceptorService.findAll();
-        const targets = await this.targetService.findAll();
+        const targets : Target[] = await this.targetService.findAll();
 
         const tree : QuadTree = new QuadTree(this.boundsOf(interceptors));
         for(const interceptor of interceptors){

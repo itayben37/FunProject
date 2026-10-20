@@ -11,8 +11,6 @@ export class AssignmentController{
         return AssignmentController.instance;
     }
 
-
-    // nothing is created, the result is calculated from the saved drones and targets, so the answer is 200
     async assign(req : Request, res : Response, next : NextFunction){
         try{
             const body = req.body ?? {};

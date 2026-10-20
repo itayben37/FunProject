@@ -20,7 +20,7 @@ export class DroneRepository{
     }
 
     async findAll() : Promise<Drone[]>{
-        const entities = await this.repo.find();
+        const entities : DroneEntity[] = await this.repo.find();
         return entities.map(DroneMapper.toDomain);
     }
 }
