@@ -1,0 +1,35 @@
+{
+  "//": [
+    "JSON has no comments, so these notes live in this top-level '//' key (npm ignores it).",
+    "dependencies: packages your app needs at runtime, also in production.",
+    "  dotenv: loads DB credentials etc. from a .env file into process.env.",
+    "  express: the web server framework (routes, middleware).",
+    "  pg: the PostgreSQL driver that TypeORM uses underneath.",
+    "  reflect-metadata: required by TypeORM decorators (@Entity, @Column) to read type info.",
+    "  typeorm: the ORM, maps your entities/classes to Postgres tables.",
+    "devDependencies: tools needed only while developing/building, not at runtime.",
+    "  @types/express: TypeScript types for Request, Response, NextFunction.",
+    "  @types/node: TypeScript types for Node globals like process and console.",
+    "  typescript: the compiler that turns .ts into .js (also provides the tsc command).",
+    "scripts: shortcuts run with 'npm run <name>'.",
+    "  dev: runs src/app.ts with tsx and restarts on every save (needs 'npm i -D tsx').",
+    "  build: compiles the project to JavaScript using tsconfig.json.",
+    "  start (not added yet): would run the built JS, e.g. 'node dist/app.js'."
+  ],
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "pg": "^8.23.1",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc"
+  }
+}
