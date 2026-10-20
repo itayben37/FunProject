@@ -28,11 +28,6 @@ What is done so far in the backend (`backend/src`). The plan is in `Desription.m
 - Controller, service, repository, mapper per module, wired in `container.ts`.
 - General `InterceptorService` and `TargetService` collect the type-specific services (`InterceptorProvider` / `TargetProvider`). A new interceptor or target type is one more entry in `container.ts`.
 
-**Fixes**
-- Broken imports in `app.ts`, `container.ts`, `data.source.ts` and the drone module.
-- Type errors from private `Vector3` fields.
-- Quadtree: points were lost after a split, and many points on one spot caused infinite recursion.
-
 ## Not done yet
 
 - Not tested against the real database (new Drone / TargetDrone columns have placeholder defaults).
