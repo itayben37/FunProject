@@ -34,4 +34,4 @@ What is done so far in the backend (`backend/src`). The plan is in `Desription.m
 - Unused stubs: `ifInOperationalRadius` in `drone.service.ts`, `ifMakeIt` in `drone.interceptor.ts`.
 - Roles have no login or access control (`admin.ts` and `user.ts` are empty).
 - No tests (Jest), ESLint / Prettier, or CI.
-- Planned but not started: frontend and map, WebSockets / live telemetry, threat priority queue, Strategy and Observer patterns, PostGIS queries, backend in Docker Compose.
+- Planned but not started: frontend and map, WebSockets / live telemetry, Strategy and Observer patterns, PostGIS queries, backend in Docker Compose.
